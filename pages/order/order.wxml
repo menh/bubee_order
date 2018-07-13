@@ -1,0 +1,70 @@
+<view class="orders">
+  <view class='order-address'>
+    <view class="order-address-first-row">
+      <view class="order-bubee-address-detail">
+        <picker value="{{indexS}}" range="{{school}}">
+          <view class="order-address-select-list">
+            <text class="order-address-school">{{school[indexS]}}</text>
+            <image class="order-tri-pic" src="../../image/icon/tri.png"></image>
+          </view>   
+        </picker>
+      </view>
+      <view class="order-bubee-address-detail">
+        <picker value="{{IndexD}}" range="{{dormitory}}">
+          <view class="order-address-select-list">
+            <text class="order-address-dormitory">{{dormitory[indexD]}}</text>
+            <image class="order-tri-pic" src="../../image/icon/tri.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="order-bubee-address-detail">
+          <text class="order-address-room">325</text>
+      </view>
+    </view>
+    <view class="order-address-second-row">
+      <view class="order-bubee-address-detail">
+          <text>menhu</text>
+      </view>
+      <view class="order-address-detail">
+        <view class="order-bubee-address-detail">
+          <text> 13726231975</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-box">
+    <view class="order-detail-error" wx:if="{{orderError}}">
+    订单错误
+    </view>
+    <view class="order-detail" wx:for="{{orderDetail}}" wx:key="orderId">
+      <view class="order-detail-name">{{item.goodName}}</view>
+      <view class="order-detail-num">x{{item.selectNum}}</view>
+      <view class="order-detail-price">￥{{item.selectNum*item.salePrice}}</view>
+    </view>
+    <view class="order-detail-deliver">
+      <view class="order-detail-deliver-label">
+        <text class="order-detail-deliver-pei">配</text>
+        <text class="order-detail-deliver-pei-fee">配送费</text>
+      </view>
+      <view class="order-detail-deliver-fee">￥1</view>
+    </view>
+    <view class="order-detail-coupon">
+      <view class="order-detail-coupon-label">
+        <text class="order-detail-coupon-hui">惠</text>
+        <text class="order-detail-coupon-hui-fee">优惠券</text>
+      </view>
+      <view class="order-detail-coupon-select">请选择优惠券</view>
+    </view>
+  </view>
+
+<view class="coupon">
+</view>
+
+ <view class="footer">
+  <text>合计</text>
+  <text>￥ {{totalPrice}}</text>
+  <text class="to-pay" bindtap='placeAnOrder'>确认下单</text>
+  </view>
+</view>
+

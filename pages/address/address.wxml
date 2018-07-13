@@ -1,0 +1,48 @@
+<view class="address">
+    <view class="address-list" wx:for="{{addressList}}"  wx:index="{{index}}" wx:key="{{id}}">
+      <view class="address-operote">
+        <image bindtap='updateAddress' src='../../image/icon/pencil.jpg'  data-address="{{item}}">
+        </image>
+        <image bindtap='deleteAddress' src='../../image/icon/dustbin.jpg' data-address="{{item}}" >
+        </image>
+      </view>
+      <view class="address-detail">
+        <input value="{{item.receiverName}}" placeholder="姓名" bindinput='bindName' >姓名：</input>
+        <input value="{{item.receiverPhone}}" placeholder='电话' bindinput='bindPhone' />
+        <input value="{{mapSchoolName[item.schoolId].schoolName}} {{mapDormitoryName[item.dormitoryId].dormitoryName}} {{item.roomId}}" placeholder='详细地址' bindinput='bindDetail' />
+      </view>
+      <view class="address-select-pic" bindtap='selectAddress' data-selectaddressid="{{item.addressId}}">
+        <image wx:if="{{item.addressId==selectAddressId}}" src='../../image/icon/select.jpg'></image>
+        <image wx:else src='../../image/icon/no_select.jpg'></image>
+      </view>
+    </view>
+  <view class="add-address-pic">
+    <image bindtap='addAddress' src='../../image/icon/circle_add.jpg'></image>
+  </view>
+  <navigator url="../order/order" redirect="true">
+    <button bindtap='confirmAddress'>
+      <text>确认地址</text>
+    </button>
+  </navigator>
+</view>
+<modal hidden="{{hidden}}" title="新增地址" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+  <view class='address-name'>姓名:
+    <input class='address-name-val' value="{{address.receiverName}}" placeholder="" bindinput='bindReceiverName' />
+  </view>
+  <view class='address-phone'>电话:
+    <input class='address-phone-val' value="{{address.receiverPhone}}" placeholder='' bindinput='bindReceiverPhone' />
+  </view>
+  <view class='address-school'>学校:
+    <picker class='address-school-val' mode="selector" range="{{schoolNameList}}" value="{{indexS}}" bindchange='listenSchoolSelected'>
+      <view>{{schoolNameList[indexS]}}</view>
+    </picker>
+  </view>
+  <view class='address-dormitory'>宿舍:
+    <picker class='address-dormitory-val' mode="selector" range="{{dormitoryNameList}}" value="{{indexD}}" bindchange='listenDormitorySelected'>
+      <view>{{dormitoryNameList[indexD]}}</view>
+    </picker>
+  </view>
+  <view class='address-room'>房间:
+    <input class='address-room-val' value="{{address.roomId}}" placeholder='' bindinput='bindRoomId' />
+  </view>
+</modal>

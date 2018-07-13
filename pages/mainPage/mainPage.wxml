@@ -1,0 +1,113 @@
+<!--  <button open-type='getUserInfo' >获取授权</button> -->
+<view class="mainPage-bubee-caption"> 
+  <view class="mainPage-bubee-decription">
+      <image class="mainPage-bubee-logo-pic" src="../../image/icon/big_add.jpg" ></image>
+      <view class="mainPage-bubee-label">
+        <label class="mainPage-bubee-caption-label">嘟记便当点餐台</label>
+        <label class="mainPage-bubee-caption-notice1">￥0元起送|配送费:￥1|配送服务:商家配送</label>
+        <label class="mainPage-bubee-caption-notice2">公告:下单选择配送时间，就可以提前预定了</label>
+        <swiper class="mainPage-bubee-caption-notice3" vertical="true" autoplay="true" circular="true" interval="2000">
+          <block wx:key="id" wx:for="{{msgList}}">
+              <swiper-item>
+                <view class="swiper_item">{{item}}</view>
+              </swiper-item>
+          </block>
+        </swiper>
+      </view>
+  </view>
+  <view class="mainPage-bubee-address">
+      <view class="mainPage-bubee-address-detail">
+          <picker value="{{index1}}" range="{{school}}">
+            <view class="mainPage-address-select-list">
+              <text class="mainPage-address-school">{{school[index1]}}</text>
+              <image class="mainPage-tri-pic" src="../../image/icon/tri.png"></image>
+            </view>   
+          </picker>
+      </view>
+      <view class="mainPage-bubee-address-detail">
+          <picker value="{{Index2}}" range="{{dormitory}}">
+            <view class="mainPage-address-select-list">
+              <text class="mainPage-address-dormitory">{{dormitory[index2]}}</text>
+              <image class="mainPage-tri-pic" src="../../image/icon/tri.png"></image>
+            </view>
+          </picker>
+      </view>
+
+      <view class="mainPage-bubee-address-detail">
+            <view class="mainPage-address-select-list">
+              <text class="mainPage-address-room">325</text>
+            </view>
+      </view>
+  </view>
+
+</view>
+
+<view class="goods">
+  <view class="mainPage-goods-bar">
+     <view wx:for="{{goodsBarLabel}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}"
+            bindtap="switchTab"
+            class="mainPage-goods-bar-label {{curIndex === index?'on':''}}">{{item.name}}
+    </view>
+  </view>
+
+  <view class="mainPage-goods-list">
+    <view class="mainPage-goods-label-caption">
+      <text >{{goodsBarLabel[curIndex].name}}</text>
+    </view>
+    <view class="mainPage-goods-box" wx:for="{{good}}" wx:key="{{goodId}}">
+      <image class="mainPage-good-image" src="{{item.goodPic}}"></image>
+      <view class="mainPage-goods-detail">
+          
+          <label class="mainPage-good-name">{{item.goodName}}</label>
+          <label class="mainPage-good-num">【库存数量】x {{item.goodNum}}</label>
+          <view class="mainPage-good-third-row">
+            <view class="mainPage-good-price">￥ <text>{{item.salePrice}}</text></view>
+            <image class="mainPage-dec-pic" src="../../image/icon/dec_icon.png" bindtap='subGood' data-price="{{item.price}}" data-goodid="{{item.goodId}}" display="none"></image>
+            <view class="mainPage-item-num" >{{item.selectNum}}</view>
+            <image class="mainPage-add-pic" src="../../image/icon/big_add.jpg" bindtap='addGood'  data-goodid="{{item.goodId}}"></image>
+          </view>
+      </view> 
+    </view>
+  </view>
+</view>
+<view class="mainPage-mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+<view class="mainPage-modalDlg" wx:if="{{showModal}}">
+    <text class="mainPage-modalDlg-title1">满10减1</text>
+    <view class="mainPage-modalDlg-title2">
+      <view class="mainPage-modalDlg-block"></view>
+      <view class="mainPage-modalDlg-title2-left">已选商品</view>
+      <view class="mainPage-modalDlg-clear">清空</view>  
+    </view>  
+    <view wx:for="{{good}}" wx:key="{{goodId}}" wx:if="{{item.selectNum>0}}">
+      <view class="mainPage-modal-foodbox" >
+        <view class="mainPage-modal-food-name">{{item.goodName}}</view>
+        <view class="mainPage-modal-food-cost">￥{{item.salePrice*item.selectNum}}</view>
+        <image class="mainPage-modal-dec-pic" src="../../image/icon/dec_icon.png" bindtap='subGood' data-price="{{item.price}}" data-goodid="{{item.goodId}}" ></image>
+        <view class="mainPage-modal-food-num">{{item.selectNum}}</view>
+        <image class="mainPage-modal-add-pic" src="../../image/icon/big_add.jpg" bindtap='addGood'  data-goodid="{{item.goodId}}"></image>
+      </view>
+    </view>
+</view>
+
+
+<view class="mainPage-footer">
+  <view class="mainPage-footer-left">
+    <image class="mainPage-car" src="../../image/icon/car{{totalPrice > 0?'_on':''}}.png" bindtap="showModal"> </image>
+    <view class="mainPage-total-num" wx:if="{{totalNum>0}}">
+        {{totalNum}}
+    </view>
+    <view class="footer-text" wx:if="{{totalPrice==0}}"> 未选购商品</view> 
+    <view class="footer-text" wx:else> 
+      <text class="mainPage-footer-price">￥{{totalPrice}} </text>
+      <text>|另需配送费￥1元</text>
+    </view>  
+  </view>
+
+  <view class="mainPage-footer-right {{totalPrice > 0?'on':''}}">
+    <view wx:if="{{totalPrice==0}}" class="mainPage-zero-pay" >￥0元起送</view>
+    <navigator url="../order/order" wx:else>
+      <view class="mainPage-zero-pay" >去付款</view>
+    </navigator>
+  </view>
+</view>
