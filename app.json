@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/mainPage/mainPage",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/authorize/authorize"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F09F36",
+    "navigationBarTitleText": "购买",
+    "navigationBarTextStyle":"white"
+  }
+}
