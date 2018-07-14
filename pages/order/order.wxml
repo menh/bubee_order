@@ -1,7 +1,7 @@
 <view class="orders">
   <view class='order-address'>
     <view class="order-address-first-row">
-      <view class="order-bubee-address-detail">
+      <view class="order-address-detail">
         <picker value="{{indexS}}" range="{{school}}">
           <view class="order-address-select-list">
             <text class="order-address-school">{{school[indexS]}}</text>
@@ -9,7 +9,7 @@
           </view>   
         </picker>
       </view>
-      <view class="order-bubee-address-detail">
+      <view class="order-address-detail">
         <picker value="{{IndexD}}" range="{{dormitory}}">
           <view class="order-address-select-list">
             <text class="order-address-dormitory">{{dormitory[indexD]}}</text>
@@ -17,18 +17,16 @@
           </view>
         </picker>
       </view>
-      <view class="order-bubee-address-detail">
+      <view class="order-address-detail">
           <text class="order-address-room">325</text>
       </view>
     </view>
     <view class="order-address-second-row">
-      <view class="order-bubee-address-detail">
+      <view class="order-address-detail order-address-name">
           <text>menhu</text>
       </view>
-      <view class="order-address-detail">
-        <view class="order-bubee-address-detail">
+      <view class="order-address-detail order-address-phone">
           <text> 13726231975</text>
-        </view>
       </view>
     </view>
   </view>
@@ -58,13 +56,28 @@
     </view>
   </view>
 
-<view class="coupon">
+  <view class="coupon">
+  </view>
 </view>
 
+<view class="order-footer">
+  <view class="order-footer-left">
+    <view class="footer-text"> 
+      <text class="order-footer-price">￥{{totalPrice}} </text>
+      <text>|已优惠￥1元</text>
+    </view>  
+  </view>
+
+  <view class="order-footer-right">
+      <view class="order-to-pay" >去支付</view>
+  </view>
+</view>
+<!--
  <view class="footer">
   <text>合计</text>
   <text>￥ {{totalPrice}}</text>
   <text class="to-pay" bindtap='placeAnOrder'>确认下单</text>
   </view>
 </view>
+-->
 
