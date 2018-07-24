@@ -27,7 +27,6 @@ Page({
     })
   },
 
-
   minCount:function(e)
   {
     const self=this;

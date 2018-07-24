@@ -17,17 +17,17 @@
   </view>
   <view class="mainPage-bubee-address">
       <view class="mainPage-bubee-address-detail">
-          <picker value="{{index1}}" range="{{school}}">
+          <picker value="{{index1}}" range="{{school}}" bindchange='selectSchool'>
             <view class="mainPage-address-select-list">
-              <text class="mainPage-address-school">{{school[index1]}}</text>
+              <text class="mainPage-address-school">{{school[indexS]}}</text>
               <image class="mainPage-tri-pic" src="../../image/icon/tri.png"></image>
             </view>   
           </picker>
       </view>
       <view class="mainPage-bubee-address-detail">
-          <picker value="{{Index2}}" range="{{dormitory}}">
+          <picker value="{{Index2}}" range="{{dormitory}}" bindchange='selectDormitory'>
             <view class="mainPage-address-select-list">
-              <text class="mainPage-address-dormitory">{{dormitory[index2]}}</text>
+              <text class="mainPage-address-dormitory">{{dormitory[indexD]}}</text>
               <image class="mainPage-tri-pic" src="../../image/icon/tri.png"></image>
             </view>
           </picker>
@@ -35,7 +35,7 @@
 
       <view class="mainPage-bubee-address-detail">
             <view class="mainPage-address-select-list">
-              <text class="mainPage-address-room">325</text>
+              <input class="mainPage-address-room" bindinput='inputRoom' placeholder='325'> </input>
             </view>
       </view>
   </view>

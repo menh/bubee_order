@@ -26,8 +26,9 @@ Page({
     mapDormitoryName:{},
     school:['中山大学','华南师范'],
     dormitory:['慎一','慎二'],
-    index1:0,
-    index2:0,
+    room:325,
+    indexS: 0,
+    indexD: 0,
     showModal:false
   },
 
@@ -168,7 +169,6 @@ Page({
         console.log('获取商品列表失败');
       }
     }) 
-
   },
   //增加商品
   addGood:function(e){
@@ -186,34 +186,7 @@ Page({
       good:good
     })
     wx.setStorageSync('orderDetail', self.data.good);
-/*
-    var orderDetail = wx.getStorageSync('orderDetail') || [];
-    
-    var goodExist=false;
-    for(var i=0;i<orderDetail.length;i++)
-    {
-      if(orderDetail[i].goodId==goodId)
-      {
-        orderDetail[i].goodNum = orderDetail[i].goodNum+1;
-        goodExist=true;
-        break;
-      }
-    }
-    if(!goodExist)
-    {
-      var newGood={
-        goodId: goodId,
-        goodNum:1
-      }
-      orderDetail.push(newGood);
-    }
-    wx.setStorageSync('orderDetail', orderDetail);
 
-    var totalPrice=self.data.totalPrice;
-    totalPrice = totalPrice + e.target.dataset.price*1;
-    self.setData({
-      totalPrice:totalPrice
-    })*/
     app.globalData.sumAmt = totalPrice;
   },
   //增加商品
@@ -251,5 +224,24 @@ Page({
     self.setData({
       showModal:false
     })
+  },
+  selectSchool:function(e){
+    const self=this;
+    self.setData({
+      indexS:e.detail.value
+    })
+  },
+  selectDormitory:function(e){
+    const self = this;
+    self.setData({
+      indexD: e.detail.value
+    })
+  },
+  inputRoom:function(e){
+    const self=this;
+    self.setData({
+      room: e.detail.value
+    })
+    console.log(self.data.room);
   }
 })
