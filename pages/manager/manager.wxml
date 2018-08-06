@@ -1,0 +1,8 @@
+<view class="manager">
+  <view class="manage-customer-info">
+    <view class="manager-customer-name"></view>
+    <view class="manager-customer-buytimes"></view>
+  </view>
+  <view>
+  </view>
+</view>
