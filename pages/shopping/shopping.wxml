@@ -1,10 +1,32 @@
 <view class="shopping">
-  <view class="shopping-top">
+ <!--  <view class="shopping-top"  style="background-image: url('../../image/img/long-gray.png');" > -->
+  <view class="shopping-top" >
+    <picker value="{{indexSchool}}" range="{{school}}" bindchange='selectSchool'>
+        <view class="shopping-select-school">{{school[indexSchool]}}</view>
+    </picker>
+
+    <picker value="{{indexDormitory}}" range="{{dormitory}}" bindchange='selectDormitory'>
+        <view class="shopping-select-dormitory">{{dormitory[indexDormitory]}}</view>
+    </picker>
+
+    <input class="shopping-room" placeholder-class="shopping-place-holder" placeholder='325'>
+    </input>
+
+    <input class="shopping-phone" placeholder-class="shopping-place-holder" placeholder='13726231975'>
+    </input>
+    <image class="shopping-portrait"  src="../../image/img/portrait.png" >
+    </image>
   </view>
   <view class="shopping-body">
-    <view class="shopping-category-bar">
+    <view class="shopping-left-bar">
+      <view class="shopping-category-bar" wx:for="{{categoryBar}}" data-id="{{id}}" data-index="{{index}}"> 
+      {{item.name}}
+      </view>
     </view>
-    
+    <view class="shopping-good-list">
+      <view>
+      </view>
+    </view>
   </view>
   <view class="shopping-root">
   </view>
