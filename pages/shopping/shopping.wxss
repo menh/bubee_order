@@ -72,3 +72,126 @@ shopping-phone{
   color: white;
   font-size: 36rpx;
 }
+
+.shopping-food-list{
+  position: fixed;
+  left: 160rpx;
+  top: 65rpx;
+  background-color: bisque;
+  width: 100%;
+  height: 100%;
+}
+
+.shopping-food-label{
+  width: 120rpx;
+  height:70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  background-color: burlywood;
+  color: white;
+  border-radius: 10rpx;
+}
+.shopping-package{
+  position: relative;
+  width: 580rpx;
+  height: 320rpx;
+  border-radius: 15rpx;
+  background-color: gray;
+}
+
+.shopping-package-left-top-title{
+  width: 310rpx;
+  height: 70rpx;
+  border-radius: 15rpx;
+  background-color: green;
+  text-align: center;
+  line-height: 70rpx;
+  color: white;
+  font-size: 30rpx;
+}
+.shopping-package-detail{
+  display: flex;
+  flex-direction: row;
+}
+.shopping-package-food{
+  width: 180rpx;
+  height: 180rpx;
+  padding-left: 10rpx;
+}
+.shopping-package-right-bottom-title{
+  position: absolute;
+  right: 0rpx;
+  bottom: 0rpx;
+  width: 300rpx;
+  height: 70rpx;
+  border-radius: 15rpx;
+  text-align:  center;
+  line-height: 70rpx;
+  background-color: green;
+  font-size: 30rpx;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.shopping-single-food{
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 15rpx;
+  background-color: gray;
+}
+
+.shopping-single-food-title{
+  height: 60rpx;
+  width: 100%;
+  border-radius: 15rpx;
+  background-color: green;
+  color: white;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.shopping-cart{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 220rpx;
+  width: 150rpx;
+}
+
+.shopping-bag-box{
+  height: 110rpx;
+  width: 150rpx;
+  text-align: center;
+}
+.shopping-bag{
+  height: 100rpx;
+  width: 100rpx;
+}
+.shopping-money{
+  height: 60rpx;
+  width: 150rpx;
+  color: white;
+  font-size: 38rpx;
+  text-align: center;
+}
+
+.shopping-coupon{
+  height: 100rpx;
+  width: 150rpx;
+  color: white;
+  font-size: 34rpx;
+  text-align: center;
+}
+.shopping-root{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background-color: yellowgreen;
+  z-index: 100;
+}

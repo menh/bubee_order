@@ -19,15 +19,56 @@
   </view>
   <view class="shopping-body">
     <view class="shopping-left-bar">
-      <view class="shopping-category-bar" wx:for="{{categoryBar}}" data-id="{{id}}" data-index="{{index}}"> 
+      <view class="shopping-category-bar" wx:key="" wx:for="{{categoryBar}}" data-id="{{id}}" data-index="{{index}}"> 
       {{item.name}}
       </view>
     </view>
-    <view class="shopping-good-list">
-      <view>
+    <view class="shopping-food-list">
+      <view class="shopping-food-label">
+        套餐
+      </view>
+      <view class="shopping-package">
+        <view class="shopping-package-left-top-title">
+        标题应该这么长
+        </view>
+        <view class="shopping-package-detail">
+          <view class="shopping-package-food">
+            <image class="shopping-package-food"  src="../../image/img/food.png"></image>
+          </view>
+          <view class="shopping-package-food">
+            <image class="shopping-package-food"  src="../../image/img/food.png"></image>
+          </view>
+          <view class="shopping-package-food">
+            <image class="shopping-package-food"  src="../../image/img/food.png"></image>
+          </view>
+        </view>
+        <view class="shopping-package-right-bottom-title">
+          <view>￥18.8</view>
+          <view class="shopping-package-dec">-</view>
+          <view class="shopping-package-num">1</view>
+          <view class="shopping-package-add">+</view>
+        </view>
+      </view>
+      <view class="shopping-food-label">
+        测试
+      </view>
+      <view class="shopping-single-food">
+        <view class="shopping-single-food-title">标题应该这么长</view>
       </view>
     </view>
   </view>
+  <view class="shopping-cart">
+    <view class="shopping-bag-box">
+      <image class="shopping-bag" src="../../image/img/bag.png"></image>
+    </view>
+    <view class="shopping-money">
+    ￥18.8
+    </view>
+    <view class="shopping-coupon">
+    获取优惠
+    </view>
+  </view>
   <view class="shopping-root">
+    微信支付
   </view>
 </view>

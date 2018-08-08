@@ -40,7 +40,7 @@ App({
         console.log(res.code);
         var code=res.code;
         if(res.code){
-          self.getOpenid(code); 
+       //   self.getOpenid(code); 
          // self.globalData.openid = "o9P4b5CcgFHTMNr5DxRfnibP-WIM";
          // console.log('topay');
          // self.toPay();
@@ -50,8 +50,8 @@ App({
         }
       }  
     });
-    self.getMapSchool();
-    self.getMapDormitory();
+    //self.getMapSchool();
+    //self.getMapDormitory();
    
   },
 
