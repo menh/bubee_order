@@ -27,36 +27,54 @@
       <view class="shopping-food-label">
         套餐
       </view>
-      <view class="shopping-package">
+      <view class="shopping-package" wx:for="{{packagesFood}}" wx:key="{{id}}">
         <view class="shopping-package-left-top-title">
-        标题应该这么长
+        {{item.title}}
         </view>
         <view class="shopping-package-detail">
           <view class="shopping-package-food">
-            <image class="shopping-package-food"  src="../../image/img/food.png"></image>
+            <image class="shopping-package-food"  src="{{item.packageFoodImg1}}"></image>
           </view>
           <view class="shopping-package-food">
-            <image class="shopping-package-food"  src="../../image/img/food.png"></image>
+            <image class="shopping-package-food"  src="{{item.packageFoodImg2}}"></image>
           </view>
           <view class="shopping-package-food">
-            <image class="shopping-package-food"  src="../../image/img/food.png"></image>
+            <image class="shopping-package-food"  src="{{item.packageFoodImg1}}"></image>
           </view>
         </view>
         <view class="shopping-package-right-bottom-title">
-          <view>￥18.8</view>
-          <view class="shopping-package-dec">-</view>
+          <view>￥{{item.price}}</view>
+          <view class="shopping-package-dec">
+            <image class="shopping-package-dec-img" src="../../image/img/dec.png"></image>
+          </view>
           <view class="shopping-package-num">1</view>
-          <view class="shopping-package-add">+</view>
+          <view class="shopping-package-add">
+            <image class="shopping-package-add-img" src="../../image/img/add.png"></image>
+          </view>
         </view>
       </view>
       <view class="shopping-food-label">
         测试
       </view>
-      <view class="shopping-single-food">
-        <view class="shopping-single-food-title">标题应该这么长</view>
+      <view class="shopping-single-food-box">
+        <view class="shopping-single-food" wx:for="{{foodList}}" wx:key="{{id}}">
+          <view class="shopping-single-food-title">{{item.title}}</view>
+          <image class="shopping-single-food-img"  src="{{item.foodImg}}"></image>
+          <view class="shopping-single-food-root">
+            <view>￥{{item.price}}</view>
+            <view class="shopping-single-dec">
+              <image class="shopping-single-dec-img" src="../../image/img/dec.png"></image>
+            </view>
+            <view class="shopping-single-num">1</view>
+            <view class="shopping-single-add">
+              <image class="shopping-single-add-img" src="../../image/img/add.png"></image>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
   </view>
+ 
   <view class="shopping-cart">
     <view class="shopping-bag-box">
       <image class="shopping-bag" src="../../image/img/bag.png"></image>
@@ -71,4 +89,10 @@
   <view class="shopping-root">
     微信支付
   </view>
+
+  <view class="shopping-mask" wx:if="{{showCart}}"></view>
+  <view class="shopping-cart-dlg" wx:if="{{showCart}}">
+    <view></view>
+  </view>
+
 </view>
