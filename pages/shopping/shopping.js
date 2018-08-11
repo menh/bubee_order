@@ -30,5 +30,17 @@ Page({
       { title: '标题应该这么长', foodImg: '../../image/img/food.png', price: 18.8 },
     ],
     showCart: false
+  },
+  showCart:function(){
+    const self=this;
+    self.setData({
+      showCart: true
+    })
+  },
+  closeCart:function(){
+    const self = this;
+    self.setData({
+      showCart: false
+    })
   }
 })

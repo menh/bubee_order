@@ -1,18 +1,23 @@
 <view class="shopping">
  <!--  <view class="shopping-top"  style="background-image: url('../../image/img/long-gray.png');" > -->
   <view class="shopping-top" >
-    <picker value="{{indexSchool}}" range="{{school}}" bindchange='selectSchool'>
+    <view class="shopping-school">
+      <picker value="{{indexSchool}}" range="{{school}}" bindchange='selectSchool'>
         <view class="shopping-select-school">{{school[indexSchool]}}</view>
-    </picker>
+      </picker>
+      <image class="shopping-school-tri" src="../../image/img/tri.png"></image>
+    </view>
 
-    <picker value="{{indexDormitory}}" range="{{dormitory}}" bindchange='selectDormitory'>
+    <view class="shopping-dormitory">
+      <picker value="{{indexDormitory}}" range="{{dormitory}}" bindchange='selectDormitory'>
         <view class="shopping-select-dormitory">{{dormitory[indexDormitory]}}</view>
-    </picker>
-
-    <input class="shopping-room" placeholder-class="shopping-place-holder" placeholder='325'>
+      </picker>
+      <image class="shopping-dormitory-tri" src="../../image/img/tri.png"></image>
+    </view>
+    <input class="shopping-room" placeholder-class="shopping-place-holder" placeholder='325'>233
     </input>
 
-    <input class="shopping-phone" placeholder-class="shopping-place-holder" placeholder='13726231975'>
+    <input class="shopping-phone" placeholder-class="shopping-place-holder" placeholder='13726231975' bindinput='inputPhone'>
     </input>
     <image class="shopping-portrait"  src="../../image/img/portrait.png" >
     </image>
@@ -76,7 +81,7 @@
   </view>
  
   <view class="shopping-cart">
-    <view class="shopping-bag-box">
+    <view class="shopping-bag-box" bindtap='showCart'>
       <image class="shopping-bag" src="../../image/img/bag.png"></image>
     </view>
     <view class="shopping-money">
@@ -92,7 +97,23 @@
 
   <view class="shopping-mask" wx:if="{{showCart}}"></view>
   <view class="shopping-cart-dlg" wx:if="{{showCart}}">
-    <view></view>
+    <view class="shoping-cart-bag-X">
+      <image class="shopping-cart-bag" src="../../image/img/bag.png"></image>
+      <view class="shopping-cart-X" bindtap='closeCart'>X</view>
+    </view>
+    
+    <view class="shopping-cart-good-list" wx:for="{{foodList}}" wx:key="{{id}}">
+      <image class="shopping-cart-good-img" src="{{item.foodImg}}"></image>
+      <view class="shopping-cart-good-title-price">
+        <view class="shopping-cart-good-title">{{item.title}}</view>
+        <view class="shopping-cart-good-price">￥{{item.price}}</view>
+      </view>
+      <view class="shopping-cart-good-num-change">
+        <view>-</view>
+        <view>2</view>
+        <view>+</view>
+      </view>
+    </view>
   </view>
 
 </view>
