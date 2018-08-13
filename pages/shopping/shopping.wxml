@@ -101,19 +101,20 @@
       <image class="shopping-cart-bag" src="../../image/img/bag.png"></image>
       <view class="shopping-cart-X" bindtap='closeCart'>X</view>
     </view>
-    
-    <view class="shopping-cart-good-list" wx:for="{{foodList}}" wx:key="{{id}}">
-      <image class="shopping-cart-good-img" src="{{item.foodImg}}"></image>
-      <view class="shopping-cart-good-title-price">
-        <view class="shopping-cart-good-title">{{item.title}}</view>
-        <view class="shopping-cart-good-price">￥{{item.price}}</view>
+    <scroll-view scroll-y="true" style="height: 200px;" >
+      <view class="shopping-cart-good-list" wx:for="{{foodList}}" wx:key="{{id}}">
+        <image class="shopping-cart-good-img" src="{{item.foodImg}}"></image>
+        <view class="shopping-cart-good-title-price">
+          <view class="shopping-cart-good-title">{{item.title}}</view>
+          <view class="shopping-cart-good-price">￥{{item.price}}</view>
+        </view>
+        <view class="shopping-cart-good-num-change">
+          <view>-</view>
+          <view>2</view>
+          <view>+</view>
+        </view>
       </view>
-      <view class="shopping-cart-good-num-change">
-        <view>-</view>
-        <view>2</view>
-        <view>+</view>
-      </view>
-    </view>
+    </scroll-view>
   </view>
 
 </view>

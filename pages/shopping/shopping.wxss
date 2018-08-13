@@ -83,7 +83,7 @@ page{
 }
 
 .shopping-left-bar{
-  background-color: burlywood;
+  background-color: #8FBFF5;
   position: fixed;
   top: 60rpx;
   width: 150rpx;
@@ -91,7 +91,6 @@ page{
 }
 
 .shopping-category-bar{
-  background-color: burlywood;
   width: 150rpx;
   height: 100rpx;
   line-height:100rpx;
@@ -103,17 +102,18 @@ page{
 .shopping-food-list{
   position: relative;
   left: 160rpx;
-  top: 65rpx;
+  top: 60rpx;
   width: 100%;
   height: 100%;
 }
 
 .shopping-food-label{
+  margin-top: 10rpx;
   width: 120rpx;
   height:70rpx;
   text-align: center;
   line-height: 70rpx;
-  background-color: burlywood;
+  background-color: #267BD9;
   color: white;
   border-radius: 10rpx;
 }
@@ -123,8 +123,8 @@ page{
   height: 320rpx;
   border-radius: 40rpx;
   border: solid;
-  border-color: green;
-  margin-bottom: 10rpx;
+  border-color: #267BD9;
+  margin-top: 10rpx;
 
 }
 
@@ -133,7 +133,7 @@ page{
   height: 70rpx;
   border-top-left-radius: 30rpx;
   border-bottom-right-radius: 40rpx;
-  background-color: green;
+  background-color: #267BD9;
   text-align: center;
   line-height: 70rpx;
   color: white;
@@ -158,7 +158,7 @@ page{
   border-bottom-right-radius: 30rpx;
   text-align:  center;
   line-height: 70rpx;
-  background-color: green;
+  background-color: #267BD9;
   font-size: 30rpx;
   color: white;
   display: flex;
@@ -187,11 +187,11 @@ page{
   height: 300rpx;
   border-radius: 30rpx;
   border: solid;
-  border-color: green;
+  border-color: #267BD9;
   text-align: center;
   position: relative;
   display: inline-block;
-  margin-bottom: 20rpx; 
+  margin-top: 10rpx; 
 }
 
 .shopping-single-food-title{
@@ -199,7 +199,7 @@ page{
   width: 100%;
   border-top-left-radius: 25rpx;
   border-top-right-radius: 25rpx;
-  background-color: green;
+  background-color: #267BD9;
   color: white;
   text-align: center;
   line-height: 60rpx;
@@ -213,7 +213,7 @@ page{
 .shopping-single-food-root{
   width: 100%;
   height: 60rpx;
-  background-color: green;
+  background-color: #267BD9;
   border-radius: 15rpx;
   position: absolute;
   bottom: 0;
@@ -272,25 +272,25 @@ page{
 .shoping-cart-bag-X{
   display: flex;
   flex-direction: row;
-  height: 100rpx;
+  height: 80rpx;
 }
 .shopping-cart-bag{
   margin-left: 20rpx;
   margin-top: 20rpx;
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 .shopping-cart-X{
-    line-height: 100rpx;
-    margin-left:300rpx;
+    margin-top:15rpx;
+    margin-left:320rpx;
+    font-size: 25rpx;
 }
-
 .shopping-cart-good-list{
-  position: relative;
   background-color: white;
   margin-top: 10rpx;
   margin-left:20rpx;
   margin-right:20rpx;
+  overflow-y: scroll;
 }
 .shopping-cart-good-title-price{
   font-size: 30rpx;
@@ -307,13 +307,16 @@ page{
   font-size: 30rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
-  width: 100rpx;
-  
-  height: 40rpx;
+  width: 100rpx;  
+  height: 50rpx;
+  margin-top: auto;
+  margin-bottom: auto;
   justify-content: space-around;
   border: solid;
   border-radius: 15rpx;
-  line-height: 40rpx;
+  border-width: 1rpx;
+  line-height: 50rpx;
+
 }
 
 .shopping-bag{
@@ -340,11 +343,15 @@ page{
 }
 
 .shopping-coupon{
-  height: 100rpx;
-  width: 150rpx;
-  color: white;
-  font-size: 34rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 120rpx;
+  margin-right: auto;
+  margin-left: auto;
+  color: #004087;
+  font-size: 24rpx;
   text-align: center;
+  background-color: #D9D526;
 }
 .shopping-root{
   position: fixed;
@@ -354,6 +361,7 @@ page{
   height: 70rpx;
   line-height: 70rpx;
   text-align: center;
-  background-color: yellowgreen;
+  background-color: #D3BF0B;
+  opacity:0.9;
   z-index: 100;
 }

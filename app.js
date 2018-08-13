@@ -35,24 +35,24 @@ App({
       }
     });
     //调用微信登录接口
-    wx.login({  
+    wx.login({
       success: function (res) {
         console.log(res.code);
-        var code=res.code;
-        if(res.code){
-       //   self.getOpenid(code); 
-         // self.globalData.openid = "o9P4b5CcgFHTMNr5DxRfnibP-WIM";
-         // console.log('topay');
-         // self.toPay();
+        var code = res.code;
+        if (res.code) {
+          //   self.getOpenid(code); 
+          // self.globalData.openid = "o9P4b5CcgFHTMNr5DxRfnibP-WIM";
+          // console.log('topay');
+          // self.toPay();
         }
-        else{
-          console.log('获取用户登陆状态失败'+res.errMsg)
+        else {
+          console.log('获取用户登陆状态失败' + res.errMsg)
         }
-      }  
+      }
     });
     //self.getMapSchool();
     //self.getMapDormitory();
-   
+
   },
 
   getMapSchool: function () {
@@ -72,7 +72,7 @@ App({
       }
     });
   },
-  
+
   getMapDormitory: function () {
     const self = this;
     wx.request({
@@ -82,7 +82,7 @@ App({
       "Content-Type": "applciation/json",
       success: function (res) {
         var mapDormitoryName = res.data;
-        self.globalData.mapDormitoryName=mapDormitoryName;
+        self.globalData.mapDormitoryName = mapDormitoryName;
         wx.setStorageSync("mapDormitoryName", mapDormitoryName);
       },
       fail: function (res) {
@@ -92,7 +92,7 @@ App({
   },
 
   unifiedorder: function (res) {
-    const self=this;
+    const self = this;
     var body = "测试支付"
     var openid = self.globalData.openid;
     var total_fee = 1
@@ -122,7 +122,7 @@ App({
   // 随机字符串产生函数  
   createNonceStr: function () {
     return Math.random().toString(36).substr(2, 15)
-  }, 
+  },
   // 时间戳产生函数  
   createTimeStamp: function () {
     return parseInt(new Date().getTime() / 1000) + ''
@@ -156,12 +156,12 @@ App({
       total_fee: total_fee,
       trade_type: trade_type
     }
-    var key='174414';
+    var key = '174414';
     var string = this.raw(ret)
     string = string + '&key=' + key
     var crypto = require('/pages/cryptojs/cryptojs.js').Crypto;
     var sign = crypto.createHash('md5').update(string, 'utf8').digest('hex')
-    console.log('sign: '+sign);
+    console.log('sign: ' + sign);
     return sign.toUpperCase()
   },
   // 下单接口
@@ -172,7 +172,7 @@ App({
     var nonce_str = this.createNonceStr()
     var timeStamp = this.createTimeStamp()
     var url = "https://api.mch.weixin.qq.com/pay/unifiedorder"
-    
+
     var formData = "<xml>"
     formData += "<appid>" + appid + "</appid>" //appid  
     formData += "<attach>" + attach + "</attach>" //附加数据  
@@ -187,65 +187,65 @@ App({
     formData += "<trade_type>JSAPI</trade_type>"
     formData += "<sign>" + this.paysignjsapi(appid, attach, body, mch_id, nonce_str, notify_url, openid, bookingNo, '203.195.196.254', total_fee, 'JSAPI') + "</sign>"
     formData += "</xml>"
-   /* var self = this
-    request({
-      url: url,
-      method: 'POST',
-      body: formData
-     }, 
-     function (err, response, body) {
-      if (!err && response.statusCode == 200) {
-        var prepay_id = self.getXMLNodeValue('prepay_id', body.toString("utf-8"))
-        var tmp = prepay_id.split('[')
-        var tmp1 = tmp[2].split(']')
-        //签名  
-        var _paySignjs = self.paysignjs(appid, nonce_str, 'prepay_id=' + tmp1[0], 'MD5', timeStamp)
-        var args = {
-          appId: appid,
-          timeStamp: timeStamp,
-          nonceStr: nonce_str,
-          signType: "MD5",
-          package: tmp1[0],
-          paySign: _paySignjs
-        }
-        deferred.resolve(args)
-      } else {
-        console.log(body)
-      }
-    })*/
-   // return deferred.promise;
-},
+    /* var self = this
+     request({
+       url: url,
+       method: 'POST',
+       body: formData
+      }, 
+      function (err, response, body) {
+       if (!err && response.statusCode == 200) {
+         var prepay_id = self.getXMLNodeValue('prepay_id', body.toString("utf-8"))
+         var tmp = prepay_id.split('[')
+         var tmp1 = tmp[2].split(']')
+         //签名  
+         var _paySignjs = self.paysignjs(appid, nonce_str, 'prepay_id=' + tmp1[0], 'MD5', timeStamp)
+         var args = {
+           appId: appid,
+           timeStamp: timeStamp,
+           nonceStr: nonce_str,
+           signType: "MD5",
+           package: tmp1[0],
+           paySign: _paySignjs
+         }
+         deferred.resolve(args)
+       } else {
+         console.log(body)
+       }
+     })*/
+    // return deferred.promise;
+  },
 
-  getOpenid:function(code){
+  getOpenid: function (code) {
     console.log("getOpenid");
-    const self=this;
-     wx.request({
+    const self = this;
+    wx.request({
       url: this.globalData.serverIp + 'getWxOpenId.do',
       method: 'POST',
-      data:{code:code},
+      data: { code: code },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-      
+
         console.log(res.data);
         //self.globalData.openid ="o9P4b5CcgFHTMNr5DxRfnibP-WIM";
-        self.globalData.openid =res.data
+        self.globalData.openid = res.data
         self.getCustomerId();
-       // self.unifiedorder(res);
+        // self.unifiedorder(res);
       },
       fail: function (res) {
         console.log('获取商品列表失败');
       }
     })
   },
-  getCustomerId:function(){
+  getCustomerId: function () {
     console.log("getCustomerId");
-    const self=this;
+    const self = this;
     wx.request({
       url: this.globalData.serverIp + 'getCustomerId.do',
       method: 'POST',
-      data:{
+      data: {
         openId: self.globalData.openid
       },
       header: {
@@ -306,19 +306,19 @@ App({
 
   globalData: {
     serverIp: 'http://localhost:8080/bubee/',
-   // serverIp:'http://203.195.196.254:8080/bubehttp/',
+    // serverIp:'http://203.195.196.254:8080/bubehttp/',
     //serverIp:'http://www.gzfjcyd.com:8080/bubehttp/',
     //serverIp: 'https://203.195.196.254/bube/',
     //serverIp:'https://www.gzfjcyd.com/',
-    openid:'',
+    openid: '',
     customerId: '',
-    appid:'wx03b68c995d8d5409',
-    secret:"084abe624d5da0e8464c6f6e0224fd27",
-    addressId:"",
-    pantrymanId:"",
-    sumAmt:0,
-    mapSchoolName:[],
-    mapDormitoryName:[],
+    appid: 'wx03b68c995d8d5409',
+    secret: "084abe624d5da0e8464c6f6e0224fd27",
+    addressId: "",
+    pantrymanId: "",
+    sumAmt: 0,
+    mapSchoolName: [],
+    mapDormitoryName: [],
 
     userInfo: null
   }
