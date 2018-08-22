@@ -40,7 +40,7 @@ App({
         console.log(res.code);
         var code = res.code;
         if (res.code) {
-          //   self.getOpenid(code); 
+             self.getOpenid(code); 
           // self.globalData.openid = "o9P4b5CcgFHTMNr5DxRfnibP-WIM";
           // console.log('topay');
           // self.toPay();
@@ -228,10 +228,10 @@ App({
       },
       success: function (res) {
 
-        console.log(res.data);
+        console.log("openud: "+res.data);
         //self.globalData.openid ="o9P4b5CcgFHTMNr5DxRfnibP-WIM";
         self.globalData.openid = res.data
-        self.getCustomerId();
+      //  self.getCustomerId();
         // self.unifiedorder(res);
       },
       fail: function (res) {
@@ -305,10 +305,10 @@ App({
 
 
   globalData: {
-    serverIp: 'http://localhost:8080/bubee/',
+    //serverIp: 'http://localhost:8080/bubee/',
     // serverIp:'http://203.195.196.254:8080/bubehttp/',
     //serverIp:'http://www.gzfjcyd.com:8080/bubehttp/',
-    //serverIp: 'https://203.195.196.254/bube/',
+    serverIp: 'https://203.195.196.254/bube/',
     //serverIp:'https://www.gzfjcyd.com/',
     openid: '',
     customerId: '',
